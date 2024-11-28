@@ -21,10 +21,19 @@
         """,     
 
     'depends': [
-
+        'stock',
+        'sale',
+        'account',
     ],
-    'data': [
+    'data': [    
+        'security/res_groups.xml',
+		'security/ir_model_access.xml',
         'views/menus.xml',
+        # 'data/default_data.xml',
+
+        'views/animal_views.xml',
+        'views/species_views.xml',
+        'reports/animal_report.xml',
     ],   
     'installable': True,  
 }

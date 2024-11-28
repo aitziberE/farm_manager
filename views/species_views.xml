@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_kanban_farm_species" model="ir.ui.view">
+        <field name="name">Species Kanban View</field>
+        <field name="model">species</field>
+        <field name="arch" type="xml">
+            <kanban string="Species">
+                <field name="name"/>
+                <!-- añadir numero de animales pertenecientes a -->
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="oe_kanban_details">
+                                <strong><field name="name"/></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_form_farm_species" model="ir.ui.view">
+        <field name="name">Species Form View</field>
+        <field name="model">species</field>
+        <field name="arch" type="xml">
+            <form string="Species">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" readonly="1"/>
+                        <field name="animal_ids" widget="badge" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- hacer un widget para acceder a los registros de consumos por producto y por edad asociados a la especie -->
+  
+    <!--  <button name="%(action_show_species_product_age)d" type="action" class="oe_stat_button" icon="fa-pencil-square-o">
+        <field string="Consumos por Edad" name="species_id" widget="statinfo"/>
+    </button> -->
+
+     <record id="view_search_farm_species" model="ir.ui.view">
+        <field name="model">species</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+
+                <!-- que tenga animal ids, las especies que no tengan ningun animal asociado que no salgan -->
+                <filter string="Especies en granja" name="species_with_animals" domain="[('animal_ids', '!=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm_species" model="ir.actions.act_window">
+		<field name="name">Species</field>
+		<field name="res_model">species</field>
+		<field name="view_mode">kanban,form</field>
+		<field name="view_id" ref="view_tree_farm_species"/>
+        <field name="context">{'active_test': False}</field>
+	</record>
+
+    <menuitem 
+        id="farm_animal" 
+        action="action_farm_species" 
+        name="Species" 
+        parent="farm_root_menu" 
+        sequence="1" 
+    />
+
+</odoo>

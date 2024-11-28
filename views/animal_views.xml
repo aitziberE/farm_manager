@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_tree_farm_animal" model="ir.ui.view">
+        <field name="name">Animal Tree View</field>
+        <field name="model">animal</field>
+        <field name="arch" type="xml">
+            <tree string="Animal">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="animal_group_id"/>
+                <field name="monthly_consume"/>
+                <field name="species_id"/>
+                <field name="sub_species"/>
+            </tree>
+        </field>
+    </record>
+
+     <record id="view_form_farm_animal" model="ir.ui.view">
+        <field name="name">Animal Form View</field>
+        <field name="model">animal</field>
+        <field name="arch" type="xml">
+            <form string="Animal">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" required="1"/>
+                        <field name="age"/>
+                        <field name="monthly_consume"/>
+                        <field name="sub_species" required="1"/>
+                    </group>
+                    <group col="2">
+                        <group>
+                            <field name="animal_group_id" required="1"/>
+                        </group>
+                        <group>
+                            <field name="species_id" widget="many2one" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="view_search_farm_animal" model="ir.ui.view">
+        <field name="model">animal</field>
+        <field name="arch" type="xml">
+            <search>
+          
+                <field name="name" />
+                <field name="age" />
+                <field name="sub_species" />
+                <field name="monthly_consume" />
+
+                <filter string="Edad" name="group_by_age" domain="[]" context="{'group_by':'age'}" />
+                <filter string="Subespecie" name="group_by_sub_species" domain="[]" context="{'group_by':'sub_species'}" />
+                <filter string="Consumo mensual" name="group_by_monthly_consume" domain="[]" context="{'group_by':'monthly_consume'}" />
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm_animal" model="ir.actions.act_window">
+		<field name="name">Animals</field>
+		<field name="res_model">animal</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="view_tree_farm_animal"/>
+        <field name="context">{'active_test': False}</field>
+	</record>
+
+    <menuitem 
+        id="farm_animal" 
+        action="action_farm_animal" 
+        name="Animals" 
+        parent="farm_root_menu" 
+        sequence="0" 
+    />
+
+</odoo>
