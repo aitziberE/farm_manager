@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <menuitem 
+        id="farm_root_menu"
+		name="Farm"
+	 	sequence="15"
+	 	web_icon="farm_manager,static/description/icon.png"
+		groups="base.group_user"
+	/>
+
+</odoo>
