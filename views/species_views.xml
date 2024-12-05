@@ -3,7 +3,7 @@
 
     <record id="view_kanban_farm_species" model="ir.ui.view">
         <field name="name">Species Kanban View</field>
-        <field name="model">species</field>
+        <field name="model">farm_manager.species</field>
         <field name="arch" type="xml">
             <kanban string="Species">
                 <field name="name"/>
@@ -23,7 +23,7 @@
 
     <record id="view_form_farm_species" model="ir.ui.view">
         <field name="name">Species Form View</field>
-        <field name="model">species</field>
+        <field name="model">farm_manager.species</field>
         <field name="arch" type="xml">
             <form string="Species">
                 <sheet>
@@ -44,7 +44,7 @@
     </button> -->
 
      <record id="view_search_farm_species" model="ir.ui.view">
-        <field name="model">species</field>
+        <field name="model">farm_manager.species</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name" />
@@ -57,18 +57,18 @@
 
     <record id="action_farm_species" model="ir.actions.act_window">
 		<field name="name">Species</field>
-		<field name="res_model">species</field>
+		<field name="res_model">farm_manager.species</field>
 		<field name="view_mode">kanban,form</field>
-		<field name="view_id" ref="view_tree_farm_species"/>
+		<field name="view_id" ref="view_kanban_farm_species"/>
         <field name="context">{'active_test': False}</field>
 	</record>
-
+    
     <menuitem 
-        id="farm_animal" 
+        id="species" 
         action="action_farm_species" 
         name="Species" 
         parent="farm_root_menu" 
-        sequence="1" 
+        sequence="5" 
     />
 
 </odoo>

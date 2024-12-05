@@ -27,9 +27,9 @@
     ],
     'data': [    
         'security/res_groups.xml',
-		# 'security/ir_model_access.xml',
+		'security/ir_model_access.xml',
         'views/menus.xml',
-        # 'data/default_data.xml',
+        'data/default_data.xml',
 
         'views/animal_views.xml',
         'views/species_views.xml',
