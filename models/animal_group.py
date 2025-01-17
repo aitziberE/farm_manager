@@ -9,7 +9,7 @@ class AnimalGroup(models.Model):
     area = fields.Char(string="Area", required=True)
     creationDate = fields.Datetime(string="Creation date")
 
-    animal_ids = fields.One2many(
+    """animal_ids = fields.One2many(
         comodel_name='farm_manager.animal',
         inverse_name='animal_group_id',
         string="Animals",
@@ -25,5 +25,4 @@ class AnimalGroup(models.Model):
         relation='Manage',
         string="Managers",
         ondelete="set null"
-    )
-    
+    )"""
