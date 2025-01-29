@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_tree_farm_animal_group" model="ir.ui.view">
+        <field name="name">Animal Group Tree View</field>
+        <field name="model">farm_manager.animal_group</field>
+        <field name="arch" type="xml">
+            <tree string="Animal Group">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="area"/>
+                <field name="creationDate" widget="date" options="{'date_format': 'yyyy'}"/>
+                <!-- <field name="animal_ids"/> -->
+                <!-- <field name="product_id"/> -->
+            </tree>
+        </field>
+    </record>
+
+     <record id="view_form_farm_animal_group" model="ir.ui.view">
+        <field name="name">Animal Group Form View</field>
+        <field name="model">farm_manager.animal_group</field>
+        <field name="arch" type="xml">
+            <form string="Animal Group Group">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" required="1"/>
+                        <field name="description" required="1"/>
+                        <field name="area" required="1"/>
+                        <field name="birthdate" widget="date" required="1"/>
+                    </group>
+                    <group col="2">
+                        <group>
+                            <!-- <field name="animal_ids" widget="one2many"/> -->
+                        </group>
+                        <group>
+                            <!-- <field name="product_id" widget="many2one" required="1"/> -->
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="view_search_farm_animal" model="ir.ui.view">
+        <field name="model">farm_manager.animal_group</field>
+        <field name="arch" type="xml">
+            <search>
+
+                <field name="name" />
+                <field name="description" />
+                <field name="area" />
+                <field name="creationDate" />
+
+                <filter string="Fecha de creación" name="group_by_creationDate" domain="[]" context="{'group_by':'creationDate'}" />
+                <filter string="Nombre" name="group_by_name" domain="[]" context="{'group_by':'name'}" />
+                <filter string="Area" name="group_by_area" domain="[]" context="{'group_by':'area'}" />
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm_animal_group" model="ir.actions.act_window">
+		<field name="name">Animal Groups</field>
+		<field name="res_model">farm_manager.animal_group</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="view_tree_farm_animal_group"/>
+        <field name="context">{'active_test': False}</field>
+	</record>
+
+    <menuitem
+        id="animal_group"
+        action="action_farm_animal_group"
+        name="Animal Groups"
+        parent="farm_root_menu"
+        sequence="4"
+    />
+
+</odoo>

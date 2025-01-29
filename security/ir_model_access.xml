@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record model="ir.model.access" id="farm_manager_animal_group_manager_access">
+        <field name="name">farm_manager_animal_group_manager_access</field>
+        <field name="model_id" ref="model_farm_manager_animal_group"/>
+        <field name="group_id" ref="group_farm_manager"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record model="ir.model.access" id="farm_manager_animal_group_user_access">
+        <field name="name">farm_manager_animal_group_user_access</field>
+        <field name="model_id" ref="model_farm_manager_animal_group"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record model="ir.model.access" id="farm_manager_animal_manager_access">
+        <field name="name">farm_manager_animal_manager_access</field>
+        <field name="model_id" ref="model_farm_manager_animal"/>
+        <field name="group_id" ref="group_farm_manager"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record model="ir.model.access" id="farm_manager_animal_user_access">
+        <field name="name">farm_manager_animal_user_access</field>
+        <field name="model_id" ref="model_farm_manager_animal"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record model="ir.model.access" id="farm_manager_species_manager_access">
+        <field name="name">farm_manager_species_manager_access</field>
+        <field name="model_id" ref="model_farm_manager_species"/>
+        <field name="group_id" ref="group_farm_manager"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record model="ir.model.access" id="farm_manager_species_user_access">
+        <field name="name">farm_manager_species_user_access</field>
+        <field name="model_id" ref="model_farm_manager_species"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+</odoo>

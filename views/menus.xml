@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <menuitem 
+    <record id="action_farm_dashboard" model="ir.actions.act_window">
+        <field name="name">Farm Dashboard</field>
+        <field name="res_model">farm_manager.animal</field>
+		<field name="res_model">farm_manager.animal_group</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+    <menuitem
         id="farm_root_menu"
-		name="Farm"
-	 	sequence="15"
-	 	web_icon="farm_manager,static/description/icon.png"
-		groups="base.group_user"
-	/>
+        name="Farm"
+        sequence="15"
+        action="action_farm_dashboard"
+        web_icon="farm_manager,static/description/icon.png"
+    />
 
 </odoo>
