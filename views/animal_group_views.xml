@@ -9,63 +9,60 @@
                 <field name="name"/>
                 <field name="description"/>
                 <field name="area"/>
+                <field name="product_id"/>
                 <field name="creationDate" widget="date" options="{'date_format': 'yyyy'}"/>
-                <!-- <field name="animal_ids"/> -->
-                <!-- <field name="product_id"/> -->
+                <field name="phone_number"/>
+                <field name="group_type"/>
             </tree>
         </field>
     </record>
 
-     <record id="view_form_farm_animal_group" model="ir.ui.view">
+    <record id="view_form_farm_animal_group" model="ir.ui.view">
         <field name="name">Animal Group Form View</field>
         <field name="model">farm_manager.animal_group</field>
         <field name="arch" type="xml">
-            <form string="Animal Group Group">
+            <form string="Animal Group">
                 <sheet>
                     <group colspan="4">
-                        <field name="name" required="1"/>
-                        <field name="description" required="1"/>
-                        <field name="area" required="1"/>
-                        <field name="birthdate" widget="date" required="1"/>
-                    </group>
-                    <group col="2">
-                        <group>
-                            <!-- <field name="animal_ids" widget="one2many"/> -->
-                        </group>
-                        <group>
-                            <!-- <field name="product_id" widget="many2one" required="1"/> -->
-                        </group>
+                        <field name="name" placeholder="Nombre del grupo" required="1"/>
+                        <field name="description" placeholder="Descripción del grupo" required="1"/>
+                        <field name="area" placeholder="Área donde se encuentra" required="1"/>
+                        <field name="product_id" placeholder="Producto consumido" required="1" widget="many2one" options="{'no_create': True}" domain="[('stock', '>', 0)]"/>
+                        <field name="creationDate" placeholder="Fecha de llegada" widget="date" required="1"/>
+                        <field name="phone_number" placeholder="Introduce el número de teléfono asociado al grupo"/>
+                        <field name="group_type"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-        <record id="view_search_farm_animal" model="ir.ui.view">
+    <record id="view_search_farm_animal" model="ir.ui.view">
         <field name="model">farm_manager.animal_group</field>
         <field name="arch" type="xml">
             <search>
-
                 <field name="name" />
                 <field name="description" />
                 <field name="area" />
                 <field name="creationDate" />
+                <field name="phone_number"/>
+                <field name="group_type"/>
 
                 <filter string="Fecha de creación" name="group_by_creationDate" domain="[]" context="{'group_by':'creationDate'}" />
                 <filter string="Nombre" name="group_by_name" domain="[]" context="{'group_by':'name'}" />
-                <filter string="Area" name="group_by_area" domain="[]" context="{'group_by':'area'}" />
-
+                <filter string="Área" name="group_by_area" domain="[]" context="{'group_by':'area'}" />
+                <filter string="Edad" name="group_by_group_type" domain="[]" context="{'group_by':'group_type'}" />
             </search>
         </field>
     </record>
 
     <record id="action_farm_animal_group" model="ir.actions.act_window">
-		<field name="name">Animal Groups</field>
-		<field name="res_model">farm_manager.animal_group</field>
-		<field name="view_mode">tree,form</field>
-		<field name="view_id" ref="view_tree_farm_animal_group"/>
+        <field name="name">Animal Groups</field>
+        <field name="res_model">farm_manager.animal_group</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_farm_animal_group"/>
         <field name="context">{'active_test': False}</field>
-	</record>
+    </record>
 
     <menuitem
         id="animal_group"

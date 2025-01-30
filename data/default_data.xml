@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Product -->
+
+    <!-- creado manualmente -->
+
+    <!-- Productos -->
+    <record id="product_carrot" model="farm_manager.product">
+        <field name="name">Carrot</field>
+        <field name="stock">100</field>
+    </record>
+
+    <record id="product_potato" model="farm_manager.product">
+        <field name="name">Potato</field>
+        <field name="stock">200</field>
+    </record>
+
+    <record id="product_corn" model="farm_manager.product">
+        <field name="name">Corn</field>
+        <field name="stock">0</field>
+    </record>
+
+    <!-- Species -->
+    <record id="species_pig" model="farm_manager.species">
+        <field name="name">Pig</field>
+    </record>
+
+    <!-- Animal Groups -->
+    <record id="animal_group_pig" model="farm_manager.animal_group">
+        <field name="name">Pig Group</field>
+        <field name="description">Grupo de cerdos</field>
+        <field name="area">Establos 1-5</field>
+        <field name="creationDate">2023-05-15</field>
+        <field name="phone_number">677738290</field>
+        <field name="product_id" ref="product_carrot"/>
+    </record>
+
+    <!-- Animals -->
+    <record id="animal_pig_1" model="farm_manager.animal">
+        <field name="name">Pig 1</field>
+        <field name="birthdate">2019-12-05</field>
+        <field name="animal_group_id" ref="animal_group_pig"/>
+        <field name="species_id" ref="species_pig"/>
+        <field name="sub_species">Domestic</field>
+    </record>
+
+    <!-- Species Product Age Requirements -->
+    <record id="species_product_age_pig_5" model="farm_manager.species_product_age">
+        <field name="species_id" ref="species_pig"/>
+        <field name="age">5</field>
+        <field name="product_id" ref="product_carrot"/>
+        <field name="amount">20.0</field>
+    </record>
+    <record id="species_product_age_pig_10" model="farm_manager.species_product_age">
+        <field name="species_id" ref="species_pig"/>
+        <field name="age">10</field>
+        <field name="product_id" ref="product_carrot"/>
+        <field name="amount">30.0</field>
+    </record>
+
+</odoo>

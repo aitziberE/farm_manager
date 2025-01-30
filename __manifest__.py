@@ -31,7 +31,7 @@
         'views/menus.xml',
         'data/default_data.xml',
 
-        'views/animal_group_views',
+        'views/animal_group_views.xml',
         'views/animal_views.xml',
         'views/species_views.xml',
         'reports/animal_group_report.xml',
