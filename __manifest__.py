@@ -36,6 +36,7 @@
         'views/species_views.xml',
         'reports/animal_group_report.xml',
         'reports/animal_report.xml',
+        'views/area_view.xml'
     ],   
     'installable': True,  
 }
