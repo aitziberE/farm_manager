@@ -45,11 +45,6 @@
         <field name="model">farm_manager.animal</field>
         <field name="arch" type="xml">
             <search>
-<<<<<<< HEAD
-          
-=======
-
->>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
                 <field name="name" />
                 <field name="birthdate"/>
                 <field name="sub_species" />
@@ -70,15 +65,6 @@
 		<field name="view_id" ref="view_tree_farm_animal"/>
         <field name="context">{'active_test': False}</field>
 	</record>
-<<<<<<< HEAD
-    
-    <menuitem 
-        id="animal" 
-        action="action_farm_animal" 
-        name="Animals" 
-        parent="farm_root_menu" 
-        sequence="4" 
-=======
 
     <menuitem
         id="animal"
@@ -86,7 +72,6 @@
         name="Animals"
         parent="farm_root_menu"
         sequence="4"
->>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
     />
 
 </odoo>

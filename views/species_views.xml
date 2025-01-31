@@ -38,11 +38,7 @@
 
 
     <!-- hacer un widget para acceder a los registros de consumos por producto y por edad asociados a la especie -->
-<<<<<<< HEAD
   
-=======
-
->>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
     <!--  <button name="%(action_show_species_product_age)d" type="action" class="oe_stat_button" icon="fa-pencil-square-o">
         <field string="Consumos por Edad" name="species_id" widget="statinfo"/>
     </button> -->
@@ -66,18 +62,6 @@
 		<field name="view_id" ref="view_kanban_farm_species"/>
         <field name="context">{'active_test': False}</field>
 	</record>
-<<<<<<< HEAD
-    
-    <menuitem 
-        id="species" 
-        action="action_farm_species" 
-        name="Species" 
-        parent="farm_root_menu" 
-        sequence="5" 
-    />
-
-</odoo>
-=======
 
     <menuitem
         id="species"
@@ -88,4 +72,3 @@
     />
 
 </odoo>
->>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e

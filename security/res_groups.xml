@@ -36,9 +36,4 @@
       <field name="category_id" ref="module_farm_species_category"/>
       <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
   </record> -->
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
 </odoo>
