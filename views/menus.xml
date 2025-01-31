@@ -3,12 +3,21 @@
 
     <record id="action_farm_dashboard" model="ir.actions.act_window">
         <field name="name">Farm Dashboard</field>
+<<<<<<< HEAD
         <!-- modificarlo, que lleve a animal_group -->
         <field name="res_model">farm_manager.animal</field>
         <field name="view_mode">kanban,form</field>
     </record>
 
     <menuitem 
+=======
+        <field name="res_model">farm_manager.animal</field>
+		<field name="res_model">farm_manager.animal_group</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+    <menuitem
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
         id="farm_root_menu"
         name="Farm"
         sequence="15"

@@ -4,6 +4,7 @@
     <!-- Product -->
 
     <!-- creado manualmente -->
+<<<<<<< HEAD
     <record id="product_category_vegetables" model="product.category">
         <field name="name">Vegetables</field>
     </record>
@@ -14,6 +15,23 @@
         <field name="categ_id" ref="product_category_vegetables"/>
         <field name="list_price">2.5</field>
         <field name="default_code">CARROT123</field>
+=======
+
+    <!-- Productos -->
+    <record id="product_carrot" model="farm_manager.product">
+        <field name="name">Carrot</field>
+        <field name="stock">100</field>
+    </record>
+
+    <record id="product_potato" model="farm_manager.product">
+        <field name="name">Potato</field>
+        <field name="stock">200</field>
+    </record>
+
+    <record id="product_corn" model="farm_manager.product">
+        <field name="name">Corn</field>
+        <field name="stock">0</field>
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
     </record>
 
     <!-- Species -->
@@ -24,6 +42,13 @@
     <!-- Animal Groups -->
     <record id="animal_group_pig" model="farm_manager.animal_group">
         <field name="name">Pig Group</field>
+<<<<<<< HEAD
+=======
+        <field name="description">Grupo de cerdos</field>
+        <field name="area">Establos 1-5</field>
+        <field name="creationDate">2023-05-15</field>
+        <field name="phone_number">677738290</field>
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
         <field name="product_id" ref="product_carrot"/>
     </record>
 
@@ -37,7 +62,11 @@
     </record>
 
     <!-- Species Product Age Requirements -->
+<<<<<<< HEAD
    <record id="species_product_age_pig_5" model="farm_manager.species_product_age">
+=======
+    <record id="species_product_age_pig_5" model="farm_manager.species_product_age">
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
         <field name="species_id" ref="species_pig"/>
         <field name="age">5</field>
         <field name="product_id" ref="product_carrot"/>
@@ -50,4 +79,8 @@
         <field name="amount">30.0</field>
     </record>
 
+<<<<<<< HEAD
 </odoo>
+=======
+</odoo>
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e

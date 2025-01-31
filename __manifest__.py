@@ -25,14 +25,25 @@
         'sale',
         'account',
     ],
+<<<<<<< HEAD
     'data': [    
+=======
+    'data': [
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
         'security/res_groups.xml',
 		'security/ir_model_access.xml',
         'views/menus.xml',
         'data/default_data.xml',
 
+<<<<<<< HEAD
         'views/animal_views.xml',
         'views/species_views.xml',
+=======
+        'views/animal_group_views.xml',
+        'views/animal_views.xml',
+        'views/species_views.xml',
+        'reports/animal_group_report.xml',
+>>>>>>> ac4a3dc8328dff7d0b7a7e92434794fbc167680e
         'reports/animal_report.xml',
     ],   
     'installable': True,  
