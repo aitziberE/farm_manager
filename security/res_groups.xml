@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+
+  <!-- Farm Categories -->
+    <record id="farm_category" model="ir.module.category">
+        <field name="name">Farm</field>
+    </record>
+
+   <!--  <record id="module_farm_animal_category" model="ir.module.category">
+        <field name="name">Animal</field>
+    </record>
+
+    <record id="module_farm_species_category" model="ir.module.category">
+        <field name="name">Species</field>
+    </record> -->
+
+
+  <!-- Farm Manager Group -->
+    <record id="group_farm_manager" model="res.groups">
+      <field name="name">Farm Manager</field>
+      <field name="category_id" ref="farm_category"/>
+      <!-- <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/> -->
+  </record>
+
+  <!-- Farm Animal Manager Group -->
+  <!--   <record id="farm_animal_group_manager" model="res.groups">
+      <field name="name">Animal Manager</field>
+      <field name="category_id" ref="module_farm_animal_category"/>
+      <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+  </record>
+ -->
+  <!-- Farm Species Manager Group -->
+  <!--   <record id="farm_species_group_manager" model="res.groups">
+      <field name="name">Species Manager</field>
+      <field name="category_id" ref="module_farm_species_category"/>
+      <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+  </record> -->
+    
+</odoo>
