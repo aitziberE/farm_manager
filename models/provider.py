@@ -5,7 +5,7 @@ class Product(models.Model):
     _description = 'Provider'
 
     name = fields.Char(string='Name', required=True)
-    product_id = fields.Many2many(comodel_name='farm_manager.product', string='Provided product(s)', ondelete='set null')
+    product_id = fields.One2many(comodel_name='farm_manager.product', string='Provided product(s)', ondelete='cascade')
 
     def get_provided_product(self):
         if self.product_id:
