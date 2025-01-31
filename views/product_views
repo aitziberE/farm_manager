@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_tree_farm_product" model="ir.ui.view">
+        <field name="name">Product Tree View</field>
+        <field name="model">farm_manager.product</field>
+        <field name="arch" type="xml">
+            <tree string="Product">
+                <field name="name"/>
+                <field name="stock"/>
+                <field name="provider_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_farm_product" model="ir.ui.view">
+        <field name="name">Product Form View</field>
+        <field name="model">farm_manager.product</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                <sheet>
+                    <group colspan="3">
+                        <field name="name" required="1"/>
+                        <field name="stock" required="1"/>
+                        <field name="provider_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+        <record id="view_search_farm_product" model="ir.ui.view">
+        <field name="model">farm_manager.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="stock"/>
+                <field name="provider_id" />
+                <filter string="Provider" name="group_by_provider_id" domain="[]" context="{'group_by':'provider_id'}" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm_product" model="ir.actions.act_window">
+		<field name="name">Products</field>
+		<field name="res_model">farm_manager.product</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="view_tree_farm_product"/>
+        <field name="context">{'active_test': False}</field>
+	</record>
+
+    <menuitem
+        id="product"
+        action="action_farm_product"
+        name="Products"
+        parent="farm_root_menu"
+        sequence="4"
+    />
+
+</odoo>
