@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+
     <!-- Areas
     <record id="stables_1_5" model="farm_manager.area">
         <field name="name">Stables 1-5</field>
         <field name=""
     </record> -->
 
+    <!-- Product -->
+    <!-- creado manualmente -->
+   <!--  <record id="product_category_vegetables" model="product.category">
+        <field name="name">Vegetables</field>
+    </record>
+
+    <record id="product_carrot" model="product.product">
+        <field name="name">Carrot</field>
+        <field name="type">product</field>
+        <field name="categ_id" ref="product_category_vegetables"/>
+        <field name="list_price">2.5</field>
+        <field name="default_code">CARROT123</field> -->
+        
     <!-- Productos -->
     <record id="product_carrot" model="farm_manager.product">
         <field name="name">Carrot</field>
@@ -35,6 +49,7 @@
         <!-- <field name="area">Establos 1-5</field> -->
         <field name="creationDate">2023-05-15</field>
         <field name="phone_number">677738290</field>
+
         <field name="product_id" ref="product_carrot"/>
     </record>
 
@@ -49,6 +64,7 @@
 
     <!-- Species Product Age Requirements -->
     <record id="species_product_age_pig_5" model="farm_manager.species_product_age">
+
         <field name="species_id" ref="species_pig"/>
         <field name="age">5</field>
         <field name="product_id" ref="product_carrot"/>
