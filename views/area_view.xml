@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="inherit_area" model="ir.ui.view">
+        <field name="name">Group</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="group_id" widget="one2many_list" readonly="1">
+                        <tree>
+                            <field name="name" width="50"/>
+                        </tree>
+                    </field>
+                </xpath>
+        </field>
+    </record>
+</odoo>
