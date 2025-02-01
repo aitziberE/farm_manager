@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, exceptions
 from datetime import date
 
 
@@ -12,6 +12,12 @@ class Animal(models.Model):
     monthly_consume = fields.Float(string='Monthly Consume (kg)', compute="_compute_monthly_consume", store=True)
     species_id = fields.Many2one(comodel_name='farm_manager.species', string='Species', required=True, ondelete="restrict")
     sub_species = fields.Char(string='Subspecies', required=True)
+
+    @api.constrains('birthdate')
+    def _check_birthdate(self):
+        for record in self:
+            if record.birthdate and record.birthdate > date.today():
+                raise exceptions.ValidationError("Birthdate cannot be superior to actual date.")
 
     def _get_consume_product(self):
         if self.animal_group_id:

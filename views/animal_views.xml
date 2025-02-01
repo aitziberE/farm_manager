@@ -30,10 +30,10 @@
                     </group>
                     <group col="2">
                         <group>
-                            <!-- <field name="animal_group_id" required="1"/> -->
+                            <field name="animal_group_id" required="1"/>
                         </group>
                         <group>
-                            <!-- <field name="species_id" widget="many2one" required="1"/> -->
+                            <field name="species_id" widget="many2one" required="1"/>
                         </group>
                     </group>
                 </sheet>
