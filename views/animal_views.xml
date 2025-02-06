@@ -30,10 +30,10 @@
                     </group>
                     <group col="2">
                         <group>
-                            <!-- <field name="animal_group_id" required="1"/> -->
+                            <field name="animal_group_id" required="1"/>
                         </group>
                         <group>
-                            <!-- <field name="species_id" widget="many2one" required="1"/> -->
+                            <field name="species_id" widget="many2one" required="1"/>
                         </group>
                     </group>
                 </sheet>
@@ -65,13 +65,13 @@
 		<field name="view_id" ref="view_tree_farm_animal"/>
         <field name="context">{'active_test': False}</field>
 	</record>
-
-    <menuitem
-        id="animal"
-        action="action_farm_animal"
-        name="Animals"
-        parent="farm_root_menu"
-        sequence="4"
+    
+    <menuitem 
+        id="animal" 
+        action="action_farm_animal" 
+        name="Animals" 
+        parent="farm_root_menu" 
+        sequence="4" 
     />
 
 </odoo>

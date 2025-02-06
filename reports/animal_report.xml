@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="animal_report_template">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <!-- Encabezado -->
+                    <div style="background-color: #0066B3; color: white; padding: 10px; text-align: center; border-radius: 5px;">
+                        <h2>Informe del Animal: <t t-esc="docs.name"/></h2>
+                    </div>
+
+                    <!-- Información General -->
+                    <div style="margin: 20px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        <p><strong>Nombre del animal:</strong> <t t-esc="docs.name"/></p>
+                        <p><strong>Especie:</strong> <t t-esc="docs.species_id.name"/></p>
+                        <p><strong>Subespecie:</strong> <t t-esc="docs.sub_species"/></p>
+                        <p><strong>Fecha de nacimiento:</strong> <t t-esc="docs.birthdate"/></p>
+                        <p><strong>Consumo mensual:</strong> <t t-esc="docs.monthly_consume"/> kg</p>
+                    </div>
+
+                    <!-- Pie de página -->
+                    <div style="margin-top: 20px; text-align: center; font-size: 12px; color: #666;">
+                        <p>Informe generado automáticamente por <strong>Farm Manager</strong></p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+    <record id="action_animal_report" model="ir.actions.report">
+        <field name="name">Informe de Animales</field>
+        <field name="model">farm_manager.animal</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">farm_manager.animal_report_template</field>
+        <field name="print_report_name">'Informe_Animal_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="farm_manager.model_farm_manager_animal"/>
+    </record>
 
 </odoo>

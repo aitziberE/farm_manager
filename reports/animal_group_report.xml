@@ -1,4 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <template id="animal_group_report_template">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <!-- Encabezado -->
+                <div style="background-color: #0066B3; color: white; padding: 10px; text-align: center; border-radius: 5px;">
+                    <h2>Informe del Grupo <t t-esc="docs.name"/></h2>
+                </div>
 
+                <!-- Información General -->
+                <div style="margin: 20px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    <p><strong>Nombre del Grupo:</strong> <t t-esc="docs.name"/></p>
+                    <p><strong>Descripción:</strong> <t t-esc="docs.description"/></p>
+                    <p><strong>Área:</strong> <t t-esc="docs.area"/></p>
+                    <p><strong>Fecha de Creación:</strong> <t t-esc="docs.creationDate"/></p>
+                    <p><strong>Tipo de Grupo:</strong> <t t-esc="docs.group_type"/></p>
+                    <p><strong>Teléfono Asociado:</strong> <t t-esc="docs.phone_number"/></p>
+                </div>
+
+                <!-- Tabla de Animales -->
+                <h3 style="background-color: #4a90e2; color: white; padding: 10px; text-align: center; border-radius: 5px;">Animales en el Grupo</h3>
+                <table class="table table-bordered" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background-color: #f2f2f2; border-bottom: 2px solid #0066B3;">
+                            <th style="padding: 8px; text-align: left;">Nombre</th>
+                            <th style="padding: 8px; text-align: left;">Especie</th>
+                            <th style="padding: 8px; text-align: left;">Fecha de Nacimiento</th>
+                            <th style="padding: 8px; text-align: left;">Consumo mensual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs.animal_ids" t-as="animal">
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 8px;"><t t-esc="animal.name"/></td>
+                                <td style="padding: 8px;"><t t-esc="animal.species_id.name"/></td>
+                                <td style="padding: 8px;"><t t-esc="animal.birthdate"/></td>
+                                <td style="padding: 8px;"><t t-esc="animal.monthly_consume"/> kg</td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+
+                <!-- Pie de página -->
+                <div style="margin-top: 20px; text-align: center; font-size: 12px; color: #666;">
+                    <p>Informe generado automáticamente por <strong>Farm Manager</strong></p>
+                    <p>Para más información, visite nuestra plataforma.</p>
+                </div>
+            </div>
+        </t>
+    </t>
+</template>
+
+
+    <record id="action_animal_group_report" model="ir.actions.report">
+        <field name="name">Informe de Grupo de Animales</field>
+        <field name="model">farm_manager.animal_group</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">farm_manager.animal_group_report_template</field>
+        <field name="print_report_name">'Informe_Grupo_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="farm_manager.model_farm_manager_animal_group"/>
+    </record>
 </odoo>

@@ -26,7 +26,7 @@
                     <group colspan="4">
                         <field name="name" placeholder="Nombre del grupo" required="1"/>
                         <field name="description" placeholder="Descripción del grupo" required="1"/>
-                        <field name="area" placeholder="Área donde se encuentra" required="1"/>
+                        <field name="area" placeholder="Área donde se encuentra" required="1" widget="many2one"/>
                         <field name="product_id" placeholder="Producto consumido" required="1" widget="many2one" options="{'no_create': True}" domain="[('stock', '>', 0)]"/>
                         <field name="creationDate" placeholder="Fecha de llegada" widget="date" required="1"/>
                         <field name="phone_number" placeholder="Introduce el número de teléfono asociado al grupo"/>

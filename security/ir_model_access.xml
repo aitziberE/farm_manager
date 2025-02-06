@@ -51,7 +51,7 @@
         <field name="perm_create" eval="1"/>
         <field name="perm_unlink" eval="1"/>
     </record>
-
+    
     <record model="ir.model.access" id="farm_manager_animal_user_access">
         <field name="name">farm_manager_animal_user_access</field>
         <field name="model_id" ref="model_farm_manager_animal"/>
