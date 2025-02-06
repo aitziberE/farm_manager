@@ -6,11 +6,14 @@ class Product(models.Model):
     _description = 'Product'
 
     name = fields.Char(string='Name', required=True)
+    price = fields.Float(string="Price(€/Kg)", default=1, required=False)
     stock = fields.Integer(string='Stock (Kg)', default=1, required=True)
-    provider_id = fields.Many2one(comodel_name='farm_manager.provider', string='Provider', ondelete='cascade')
+    monthly_consume= fields.Float(string="Monthly Consume (Kg)", compute="_compute_monthly_consume", store=True)
+    #provider_id = fields.Many2many(comodel_name='farm_manager.provider', string='Provider', ondelete='set null')
     animal_group_ids = fields.One2many(comodel_name='farm_manager.animal_group', inverse_name='product_id', string="Animal Groups")
 
-    def get_provided_product(self):
-        if self.provider_id:
-            return self.provider_id
-        return None
+    @api.depends('animal_group_ids.animal_ids.monthly_consume')
+    def _compute_monthly_consume(self):
+        for record in self:
+            total_consume = sum(record.animal_group_ids.mapped('animal_ids').mapped('monthly_consume'))
+            record.monthly_consume = total_consume

@@ -7,8 +7,9 @@
         <field name="arch" type="xml">
             <tree string="Product">
                 <field name="name"/>
+                <field name="price"/>
                 <field name="stock"/>
-                <field name="provider_id"/>
+                <field name="monthly_consume"/>
             </tree>
         </field>
     </record>
@@ -19,35 +20,35 @@
         <field name="arch" type="xml">
             <form string="Product">
                 <sheet>
-                    <group colspan="3">
-                        <field name="name" required="1"/>
-                        <field name="stock" required="1"/>
-                        <field name="provider_id"/>
+                    <group colspan="4">
+                        <field name="name" placeholder="Nombre del producto" required="1"/>
+                        <field name="price" placeholder="Precio del producto" required="1"/>
+                        <field name="stock" placeholder="Stock restante" required="1"/>
+                        <field name="monthly_consume" placeholder="Consumo mensual" required="1"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-        <record id="view_search_farm_product" model="ir.ui.view">
+    <record id="view_search_farm_product" model="ir.ui.view">
         <field name="model">farm_manager.product</field>
         <field name="arch" type="xml">
             <search>
                 <field name="name" />
-                <field name="stock"/>
-                <field name="provider_id" />
-                <filter string="Provider" name="group_by_provider_id" domain="[]" context="{'group_by':'provider_id'}" />
+
+                <filter string="Nombre" name="group_by_name" domain="[]" context="{'group_by':'name'}" />
             </search>
         </field>
     </record>
 
     <record id="action_farm_product" model="ir.actions.act_window">
-		<field name="name">Products</field>
-		<field name="res_model">farm_manager.product</field>
-		<field name="view_mode">tree,form</field>
-		<field name="view_id" ref="view_tree_farm_product"/>
+        <field name="name">Product</field>
+        <field name="res_model">farm_manager.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_farm_product"/>
         <field name="context">{'active_test': False}</field>
-	</record>
+    </record>
 
     <menuitem
         id="product"
