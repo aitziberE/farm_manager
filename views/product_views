@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_tree_farm_product" model="ir.ui.view">
+        <field name="name">Product Tree View</field>
+        <field name="model">farm_manager.product</field>
+        <field name="arch" type="xml">
+            <tree string="Product">
+                <field name="name"/>
+                <field name="price"/>
+                <field name="stock"/>
+                <field name="monthly_consume"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_farm_product" model="ir.ui.view">
+        <field name="name">Product Form View</field>
+        <field name="model">farm_manager.product</field>
+        <field name="arch" type="xml">
+            <form string="Product">
+                <sheet>
+                    <group colspan="4">
+                        <field name="name" placeholder="Nombre del producto" required="1"/>
+                        <field name="price" placeholder="Precio del producto" required="1"/>
+                        <field name="stock" placeholder="Stock restante" required="1"/>
+                        <field name="monthly_consume" placeholder="Consumo mensual" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_search_farm_product" model="ir.ui.view">
+        <field name="model">farm_manager.product</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+
+                <filter string="Nombre" name="group_by_name" domain="[]" context="{'group_by':'name'}" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_farm_product" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="res_model">farm_manager.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_tree_farm_product"/>
+        <field name="context">{'active_test': False}</field>
+    </record>
+
+    <menuitem
+        id="product"
+        action="action_farm_product"
+        name="Products"
+        parent="farm_root_menu"
+        sequence="4"
+    />
+
+</odoo>
