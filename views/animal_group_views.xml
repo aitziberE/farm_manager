@@ -55,21 +55,21 @@
             </search>
         </field>
     </record>
-<!--
+
     <record id="action_farm_animal_group" model="ir.actions.act_window">
         <field name="name">Animal Groups</field>
         <field name="res_model">farm_manager.animal_group</field>
         <field name="view_mode">tree,form</field>
         <field name="view_id" ref="view_tree_farm_animal_group"/>
         <field name="context">{'active_test': False}</field>
-    </record>-->
-<!--
+    </record>
+
     <menuitem
         id="animal_group"
         action="action_farm_animal_group"
         name="Animal Groups"
         parent="farm_root_menu"
         sequence="4"
-    />-->
+    />
 
 </odoo>
