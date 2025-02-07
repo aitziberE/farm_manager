@@ -2,10 +2,14 @@
 <odoo>
 
     <record id="action_farm_dashboard" model="ir.actions.act_window">
-        <field name="name">Farm Dashboard</field>
-        <!-- <field name="res_model">farm_manager.animal</field> -->
-		<field name="res_model">farm_manager.animal_group</field>
-        <field name="view_mode">kanban,form</field>
+        <menuitem>
+            <field name="name">Farm Dashboard</field>
+            <field name="res_model">farm_manager.animal</field>
+            <field name="res_model">farm_manager.animal_group</field>
+            <field name="res_model">farm_manager.product</field>
+            <field name="res_model">farm_manager.provider</field>
+            <field name="view_mode">kanban,form</field>
+        </menuitem>
     </record>
 
     <menuitem
