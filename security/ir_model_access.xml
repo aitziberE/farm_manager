@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <odoo>
+    <data>
+        <!-- Acceso para el grupo Admin -->
+        <record id="access_provider_admin" model="ir.model.access">
+            <field name="name">provider.admin.access</field>
+            <field name="model_id" ref="model_farm_manager_provider"/>
+            <field name="group_id" ref="base.group_system"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Acceso para usuarios normales -->
+        <record id="access_provider_user" model="ir.model.access">
+            <field name="name">provider.user.access</field>
+            <field name="model_id" ref="model_farm_manager_provider"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <!-- Acceso para el modelo Product relacionado -->
+        <record id="access_product_provider" model="ir.model.access">
+            <field name="name">product.provider.access</field>
+            <field name="model_id" ref="model_product_template"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+    </data>
+
+
+
 
     <record model="ir.model.access" id="farm_manager_product_manager_access">
         <field name="name">farm_manager_product_manager_access</field>
@@ -51,7 +87,7 @@
         <field name="perm_create" eval="1"/>
         <field name="perm_unlink" eval="1"/>
     </record>
-    
+
     <record model="ir.model.access" id="farm_manager_animal_user_access">
         <field name="name">farm_manager_animal_user_access</field>
         <field name="model_id" ref="model_farm_manager_animal"/>

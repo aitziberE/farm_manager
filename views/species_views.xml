@@ -61,14 +61,13 @@
 		<field name="view_id" ref="view_kanban_farm_species"/>
         <field name="context">{'active_test': False}</field>
 	</record>
-    
-    <menuitem 
-        id="species" 
-        action="action_farm_species" 
-        name="Species" 
-        parent="farm_root_menu" 
-        sequence="5" 
-    />
+
+    <!--<menuitem
+        id="species"
+        action="action_farm_species"
+        name="Species"
+        parent="menu_farm_manager_root"
+        sequence="5"
+    />-->
 
 </odoo>
-

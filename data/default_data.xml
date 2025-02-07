@@ -20,7 +20,7 @@
         <field name="categ_id" ref="product_category_vegetables"/>
         <field name="list_price">2.5</field>
         <field name="default_code">CARROT123</field> -->
-        
+
     <!-- Productos -->
     <record id="product_carrot" model="farm_manager.product">
         <field name="name">Carrot</field>

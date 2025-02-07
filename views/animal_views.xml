@@ -57,7 +57,7 @@
             </search>
         </field>
     </record>
-
+<!--
     <record id="action_farm_animal" model="ir.actions.act_window">
 		<field name="name">Animals</field>
 		<field name="res_model">farm_manager.animal</field>
@@ -65,13 +65,13 @@
 		<field name="view_id" ref="view_tree_farm_animal"/>
         <field name="context">{'active_test': False}</field>
 	</record>
-    
-    <menuitem 
-        id="animal" 
-        action="action_farm_animal" 
-        name="Animals" 
-        parent="farm_root_menu" 
-        sequence="4" 
-    />
 
+    <menuitem
+        id="animal"
+        action="action_farm_animal"
+        name="Animals"
+        parent="farm_root_menu"
+        sequence="4"
+    />
+-->
 </odoo>

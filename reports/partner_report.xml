@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="provider_report"
+        string="Provider Report"
+        model="provider"
+        report_type="qweb-pdf"
+        name="farm_manager.provider_report_template"
+        file="farm_manager.provider_report_template"/>
+
+    <template id="provider_report_template">
+        <t t-call="web.basic_layout">
+            <t t-set="doc" t-value="doc.with_context(lang=doc.env.user.lang)"/>
+            <div class="page">
+                <h2 style="text-align: center;">Provider Report</h2>
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Products</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="provider">
+                            <tr>
+                                <td><t t-esc="provider.id"/></td>
+                                <td><t t-esc="provider.name"/></td>
+                                <td><t t-esc="provider.email"/></td>
+                                <td><t t-esc="provider.phone"/></td>
+                                <td>
+                                    <ul>
+                                        <t t-foreach="provider.product_ids" t-as="product">
+                                            <li><t t-esc="product.name"/></li>
+                                        </t>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>
