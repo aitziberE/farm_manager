@@ -1,36 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Menú principal -->
-    <menuitem id="menu_farm_manager_root" name="Farm Manager"/>
 
-    <!-- Acciones individuales para cada modelo -->
-    <record id="action_animal" model="ir.actions.act_window">
-        <field name="name">Animals</field>
-        <field name="res_model">farm_manager.animal</field>
-        <field name="view_mode">tree,form</field>
+    <record id="action_farm_dashboard" model="ir.actions.act_window">
+        <field name="name">Farm Dashboard</field>
+        <!-- <field name="res_model">farm_manager.animal</field> -->
+		<field name="res_model">farm_manager.animal_group</field>
+        <field name="view_mode">kanban,form</field>
     </record>
 
-    <record id="action_animal_group" model="ir.actions.act_window">
-        <field name="name">Animal Groups</field>
-        <field name="res_model">farm_manager.animal_group</field>
-        <field name="view_mode">tree,form</field>
-    </record>
+    <menuitem
+        id="farm_root_menu"
+        name="Farm"
+        sequence="15"
+        action="action_farm_dashboard"
+        web_icon="farm_manager,static/description/icon.png"
+    />
 
-    <record id="action_provider" model="ir.actions.act_window">
-        <field name="name">Providers</field>
-        <field name="res_model">farm_manager.provider</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <record id="action_farm_species" model="ir.actions.act_window">
-        <field name="name">Species</field>
-        <field name="res_model">farm_manager.species</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-    <!-- Submenús -->
-    <menuitem id="menu_animal" name="Animals" parent="menu_farm_manager_root" action="action_animal"/>
-    <menuitem id="menu_animal_group" name="Animal Groups" parent="menu_farm_manager_root" action="action_animal_group"/>
-    <menuitem id="menu_provider" name="Providers" parent="menu_farm_manager_root" action="action_provider"/>
-    <menuitem id="menu_species" name="Species" parent="menu_farm_manager_root" action="action_farm_species" sequence="5"/>
 </odoo>

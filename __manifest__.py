@@ -18,10 +18,9 @@
         - Assign feed to animals and track their consumption.
         - Maintain stock levels of products such as feed and other resources.
         - Generate reports on consumption and stock status.
-        """,
+        """,     
 
     'depends': [
-    'base', 'hr',
         'stock',
         'sale',
         'account',
@@ -37,8 +36,7 @@
         'views/species_views.xml',
         'reports/animal_group_report.xml',
         'reports/animal_report.xml',
-        'views/area_view.xml',
-        'views/partner_views.xml'
-    ],
-    'installable': True,
+        'views/area_view.xml'
+    ],   
+    'installable': True,  
 }
