@@ -37,7 +37,7 @@
     </record>
 
 
-    <!-- hacer un widget para acceder a los registros de consumos por producto y por edad asociados a la especie -->v
+    <!-- hacer un widget para acceder a los registros de consumos por producto y por edad asociados a la especie -->
     <!--  <button name="%(action_show_species_product_age)d" type="action" class="oe_stat_button" icon="fa-pencil-square-o">
         <field string="Consumos por Edad" name="species_id" widget="statinfo"/>
     </button> -->
@@ -71,3 +71,4 @@
     />
 
 </odoo>
+
