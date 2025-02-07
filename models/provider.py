@@ -5,13 +5,6 @@ class Provider(models.Model):
     _description = 'Provider Model'
     _inherit = 'res.partner'
 
-    # Relación One2One con User (res.partner)
-    partner_id = fields.Many2one('res.partner', string='Related Partner', required=True, ondelete='cascade')
-
-    # Campos básicos
-    email = fields.Char(string='Email', required=True)
-    phone = fields.Char(string='Phone Number', required=True)
-
     # Relación One2Many con Product
     product_ids = fields.One2many('product.template', 'provider_id', string='Products')
 
